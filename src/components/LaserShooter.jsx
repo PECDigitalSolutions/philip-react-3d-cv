@@ -17,6 +17,7 @@ function LaserShooter({ active, tieFighters }) {
       const dx = Math.abs(e.clientX - mouseDownPos.current.x);
       const dy = Math.abs(e.clientY - mouseDownPos.current.y);
       const dragThreshold = 5;
+
       if (dx > dragThreshold || dy > dragThreshold || !active) return;
 
       const mouse = new THREE.Vector2(
@@ -29,7 +30,7 @@ function LaserShooter({ active, tieFighters }) {
       const targetPoint = new THREE.Vector3();
       raycaster.ray.at(100, targetPoint);
 
-      const offset = new THREE.Vector3(-1, -1, -0);
+      const offset = new THREE.Vector3(-1, -1, 0);
       const startPosition = offset.applyMatrix4(camera.matrixWorld);
       const direction = targetPoint.clone().sub(startPosition).normalize();
 

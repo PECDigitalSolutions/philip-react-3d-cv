@@ -3,11 +3,14 @@ import profileImage from '../assets/avatar.jpg';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import Background3D from '../components/Background3D';
+import { useLocation } from 'react-router-dom'; // 👈 Lägg till
 
 function Home() {
+  const location = useLocation(); // 👈 Hämta platsen
+
   return (
     <>
-      <Background3D />
+      {location.pathname === '/' && <Background3D />}
 
       <div className="home-container">
         <motion.img

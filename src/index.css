@@ -4,3 +4,6 @@ body {
     background-color: #121212; /* Mörk bakgrund för ett mörkt tema */
     color: #e0e0e0; /* Ljus text för kontrast */
 }
+canvas {
+    pointer-events: none; /* 👈 tillåter klick att passera igenom */
+  }

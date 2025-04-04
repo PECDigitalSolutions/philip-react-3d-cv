@@ -10,7 +10,7 @@ import '../styles/Background3D.css';
 function Background3D() {
   const [fighters, setFighters] = useState([]);
   const [explosions, setExplosions] = useState([]);
-  const checkHitFns = useRef({}); // Använd useRef för att lagra registrerade funktioner
+  const checkHitFns = useRef({}); // Hantera registrering av checkHit-funktioner
   const location = useLocation();
 
   const spawnFighter = () => {
@@ -29,6 +29,11 @@ function Background3D() {
     delete checkHitFns.current[id]; // Ta bort funktionen från ref
     setFighters((prev) => prev.filter((f) => f.id !== id));
     setExplosions((prev) => [...prev, { id, position }]);
+  };
+
+  // Uppdatera tieFighterList när en ny checkHit registreras
+  const registerCheckHit = (id, fn) => {
+    checkHitFns.current[id] = fn;
   };
 
   // 🧼 Navigera bort = rensa
@@ -71,9 +76,7 @@ function Background3D() {
             key={fighter.id}
             id={fighter.id}
             onHit={(pos) => handleHit(fighter.id, pos)}
-            registerCheckHit={(fn) => {
-              checkHitFns.current[fighter.id] = fn; // Registrera funktionen i ref
-            }}
+            registerCheckHit={(fn) => registerCheckHit(fighter.id, fn)} // Registrera checkHit
           />
         ))}
 
