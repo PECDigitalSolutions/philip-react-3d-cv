@@ -15,7 +15,7 @@ function Background3D() {
   const location = useLocation();
   const spawnIntervalRef = useRef(null);
 
-  const MAX_FIGHTERS = 10;
+  const MAX_FIGHTERS = 5;
 
   const handleHit = (id, position) => {
     delete checkHitFns.current[id];
@@ -65,7 +65,7 @@ function Background3D() {
         <button onClick={clearFighters} className="clear-button">
           Clear All
         </button>
-        <div className="counter">Active: {fighters.length}/10</div>
+        <div className="counter">Active: {fighters.length}/5</div>
       </div>
 
       <Canvas

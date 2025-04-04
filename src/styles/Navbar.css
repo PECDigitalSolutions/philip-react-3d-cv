@@ -1,58 +1,73 @@
-nav {
+/* Sidomeny */
+.side-navbar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 60px; /* Sätt en fast höjd för navigation baren */
-    background-color: #282c34;
-    padding: 0 5%; /* Endast horisontell padding för att hålla innehållet på plats */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    height: 100vh;
+    width: 200px;
+    background: linear-gradient(to bottom, #111, #1a1a1a);
+    border-right: 2px solid #61dafb;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     z-index: 1000;
-    overflow-x: auto; /* Tillåt horisontell scroll om det behövs */
-    white-space: nowrap; /* Förhindra att länkar bryts till nästa rad */
-    display: flex;
-    align-items: center; /* Vertikal centrering av innehållet */
-    user-select: none;
-}
-
-nav ul {
+    font-family: 'Share Tech Mono', monospace;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Menyinnehåll */
+  .side-navbar ul {
     list-style: none;
-    display: flex;
-    gap: 5%; /* Procentbaserat mellanrum mellan länkar */
-    margin: 0;
     padding: 0;
-    justify-content: flex-start; /* Justera länkar till vänster */
-    flex-wrap: nowrap; /* Förhindra att länkar bryts */
-}
-
-nav li {
-    display: inline-block; /* Håll länkarna i en rad */
-}
-
-nav a {
-    color: #ffffff;
+    width: 100%;
+  }
+  .side-navbar li {
+    margin: 1rem 0;
+    text-align: center;
+  }
+  .side-navbar a {
+    color: #ccc;
     text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem; /* Relativ fontstorlek för skalbarhet */
+    font-weight: bold;
     transition: color 0.2s ease;
-}
-
-nav a:hover {
+  }
+  .side-navbar a:hover,
+  .side-navbar a.active {
     color: #61dafb;
-}
-
-/* Lägg till padding för att förhindra att innehåll döljs under navbaren */
-body {
-    padding-top: 60px; /* Matcha detta värde med navbarens höjd */
-}
-
-/* Media query för mindre skärmar */
-@media (max-width: 768px) {
-    nav ul {
-        gap: 3%; /* Minska mellanrummet mellan länkar för mindre skärmar */
+    text-shadow: 0 0 5px #61dafb;
+  }
+  
+  /* Hamburgermenyn */
+  .hamburger {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+  .bar {
+    width: 25px;
+    height: 3px;
+    background: #61dafb;
+    transition: transform 0.3s;
+  }
+  
+  /* RESPONSIVT LÄGE */
+  @media (max-width: 1000px) {
+    .hamburger {
+      display: flex;
     }
-
-    nav a {
-        font-size: 0.9rem; /* Justera fontstorlek för mindre skärmar */
+  
+    .side-navbar {
+      transform: translateX(-100%);
     }
-}
+  
+    .side-navbar.open {
+      transform: translateX(0);
+    }
+  }
+  
