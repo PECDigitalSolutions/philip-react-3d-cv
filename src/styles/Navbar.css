@@ -14,6 +14,7 @@
     z-index: 1000;
     font-family: 'Share Tech Mono', monospace;
     transition: transform 0.3s ease-in-out;
+    user-select: none; /* Förhindra att text markeras */
   }
   
   /* Menyinnehåll */

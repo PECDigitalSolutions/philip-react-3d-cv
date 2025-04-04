@@ -6,6 +6,7 @@ import Skills from './pages/Skills'
 import Experience from './pages/Experience'
 import Projects from './pages/Projects'
 import Contact from './pages/Contact'
+import StarWarsCV from './pages/StarWarsCV';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/experience" element={<Experience />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/starwars-cv" element={<StarWarsCV />} />
       </Routes>
     </>
   )

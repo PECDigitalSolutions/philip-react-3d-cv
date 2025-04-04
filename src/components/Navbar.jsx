@@ -24,6 +24,7 @@ function Navbar() {
           <li><NavLink to="/experience">Erfarenhet</NavLink></li>
           <li><NavLink to="/projects">Projekt</NavLink></li>
           <li><NavLink to="/contact">Kontakt</NavLink></li>
+          <li><NavLink to="/starwars-cv">Philip Episode CV</NavLink></li>
         </ul>
       </nav>
     </>

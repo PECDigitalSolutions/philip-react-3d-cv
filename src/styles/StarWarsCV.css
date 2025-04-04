@@ -1,0 +1,81 @@
+/* Grundstruktur */
+.starwars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    overflow: hidden;
+    z-index: 999; /* Ligger över resten */
+    color: #ffe81f; /* Klassisk gul Star Wars-färg */
+    font-family: 'Arial Black', sans-serif;
+    perspective: 600px;
+  }
+  
+  /* Animerad kryptext */
+  .crawl {
+    position: absolute;
+    bottom: -100%;
+    width: 90%;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    text-align: justify;
+    transform-origin: 50% 100%;
+    animation: crawl 120s linear forwards;
+}
+  
+  /* Titel (centrerat) */
+  .title {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .title h1 {
+    font-size: 3rem;
+    margin: 0;
+  }
+  
+  .title p {
+    font-size: 1.8rem;
+    margin: 0;
+  }
+
+  
+  @keyframes crawl {
+    0% {
+      /* Startpositionen för animationen */
+  
+      transform: 
+        rotateX(5deg)         /* 🔄 Lutar texten 25° i X-led, så den ser ut att "falla bort i djupet" */
+        translateZ(0px)     /* 🔍 Flyttar texten lite bakåt i "djupet" så den är synlig direkt */
+        translateY(0%);      /* ⬇️ Börjar under skärmen (100% nedåt) */
+    }
+    100% {
+      /* Slutpositionen för animationen */
+  
+      transform: 
+        rotateX(15deg)         /* 🧭 Behåller samma lutning hela vägen */
+        translateZ(-300px)     /* 🚀 Flyttar längre bort i djupet = mindre text */
+        translateY(-300%);     /* ⬆️ Flyttar texten långt uppåt för att scrolla ut ur synfältet */
+    }
+  }
+  /* Mobiljustering */
+  @media (max-width: 600px) {
+    .crawl {
+      font-size: 1rem;
+      line-height: 1.5rem;
+    }
+  
+    .title h1 {
+      font-size: 2rem;
+    }
+  
+    .title p {
+      font-size: 1.2rem;
+    }
+  }
+  
