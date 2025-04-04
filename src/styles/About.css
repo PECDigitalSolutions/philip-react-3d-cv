@@ -1,0 +1,30 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center; /* Centrera texten i hela containern */
+}
+
+.about-container h2 {
+    font-size: 2.5rem;
+    color: #61dafb;
+    margin-bottom: 1.5rem;
+    text-align: center; /* Säkerställ att rubriken är centrerad */
+    position: relative;
+}
+
+.about-container p {
+    margin-bottom: 1.5rem;
+    word-wrap: break-word; /* För att hantera långa ord */
+    text-align: center; /* Centrera texten i paragrafer */
+    position: relative;
+}
+  
+  .home-container h1 {
+    position: relative;
+  }
+  
