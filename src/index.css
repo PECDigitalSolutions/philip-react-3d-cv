@@ -1,9 +1,19 @@
+/* Se till att root inte blockerar musinteraktioner */
+html, body, #root {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Låt musinteraktioner passera igenom */
+  }
+  
+  /* Tillåt interaktion med specifika element */
+  #root * {
+    pointer-events: auto; /* Tillåt interaktion med barn som knappar och länkar */
+  }
+  
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #121212; /* Mörk bakgrund för ett mörkt tema */
     color: #e0e0e0; /* Ljus text för kontrast */
 }
-canvas {
-    pointer-events: none; /* 👈 tillåter klick att passera igenom */
-  }

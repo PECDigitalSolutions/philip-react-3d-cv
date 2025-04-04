@@ -1,3 +1,4 @@
+/* Grundläggande layout för home-container */
 .home-container {
     display: flex;
     flex-direction: column;
@@ -7,65 +8,58 @@
     flex: 1;
     gap: 2rem;
     padding-top: 50px;
-  
-    user-select: none;
-    -webkit-user-select: none;
-    -ms-user-select: none;
-  
-    /* ❌ TA BORT pointer-events: none här */
+    pointer-events: none; /* Låt musinteraktioner passera igenom */
+    z-index: 1; /* Lägg home-container ovanpå Canvas */
+    position: relative; /* Behåll positionering för innehåll */
+    user-select: none; /* Förhindra att text markeras */
   }
   
-  /* ✅ Lägg istället här */
-  .profile-image,
-  .home-container h1,
-  .home-container p,
-  .typewriter-text {
-    pointer-events: none;
-    user-select: none;
-  }
-  
-  /* Behåll detta */
+  /* Tillåt interaktion med specifika element */
   .cta-buttons,
-  .socials {
-    pointer-events: auto;
+  .socials,
+  .cta-buttons a,
+  .socials a {
+    pointer-events: auto; /* Tillåt klick på knappar och länkar */
   }
-
-.profile-image {
+  
+  /* Profilbildens stil */
+  .profile-image {
     width: 200px;
     height: 200px;
     border-radius: 50%;
     border: 3px solid #61dafb;
     object-fit: cover;
-}
-
-.home-container h1 {
-    font-size: 3rem; /* Överskriv global fontstorlek */
-    line-height: 1.2; /* Justera radavstånd */
-    color: #61dafb; /* React-blå */
+    pointer-events: none; /* Låt musinteraktioner passera igenom */
+  }
+  
+  /* Stil för huvudrubriken */
+  .home-container h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    color: #61dafb;
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; /* Centrera texten */
-    
-}
-
-.home-container p {
+    pointer-events: none; /* Låt musinteraktioner passera igenom */
+    user-select: none;
+  }
+  
+  /* Stil för texten */
+  .home-container p {
     font-size: 1.2rem;
     color: #b0b0b0;
     margin: 0;
-}
-
-/*################### Call to action buttons #####################*/
-
-.cta-buttons {
+    pointer-events: none; /* Låt musinteraktioner passera igenom */
+    user-select: none;
+  }
+  
+  /* Call-to-action-knappar */
+  .cta-buttons {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.btn {
+  }
+  
+  .btn {
     padding: 0.8rem 1.5rem;
     background-color: #61dafb;
     color: #121212;
@@ -73,55 +67,54 @@
     border-radius: 8px;
     text-decoration: none;
     transition: 0.3s ease;
-}
-
-.btn:hover {
+  }
+  
+  .btn:hover {
     background-color: #21a1f1;
     color: white;
-}
-
-
-/*################### Social media icons #####################*/
-
-.socials {
+  }
+  
+  /* Social media-ikoner */
+  .socials {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
     justify-content: center;
-}
-
-.socials a {
+  }
+  
+  .socials a {
     color: #b0b0b0;
     text-decoration: none;
     transition: color 0.3s ease;
-}
-
-.socials a:hover {
+  }
+  
+  .socials a:hover {
     color: #61dafb;
-}
-
-/*################### Typewriter effect #####################*/
-.typewriter-text {
+  }
+  
+  /* Typewriter-effekt */
+  .typewriter-text {
     font-size: 1.3rem;
     font-weight: bold;
     color: #b0b0b0;
     margin-top: 0.5rem;
     white-space: nowrap;
-    animation: blink 0.7s step-end infinite;
-}
-
-.attribution {
+    pointer-events: none; /* Låt musinteraktioner passera igenom */
+  }
+  
+  /* Attribution längst ner */
+  .attribution {
     position: fixed;
     bottom: 10px;
     right: 10px;
     font-size: 0.75rem;
     color: #888;
     z-index: 1000;
-    pointer-events: none;
+    pointer-events: none; /* Låt musinteraktioner passera igenom */
     user-select: none;
   }
   
   .attribution a {
     color: #61dafb;
-    pointer-events: auto;
+    pointer-events: auto; /* Tillåt klick på länkar */
   }

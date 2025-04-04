@@ -3,10 +3,10 @@ import profileImage from '../assets/avatar.jpg';
 import { TypeAnimation } from 'react-type-animation';
 import { motion } from 'framer-motion';
 import Background3D from '../components/Background3D';
-import { useLocation } from 'react-router-dom'; // 👈 Lägg till
+import { useLocation } from 'react-router-dom'; 
 
 function Home() {
-  const location = useLocation(); // 👈 Hämta platsen
+  const location = useLocation(); // Används för att dölja 3D-bakgrunden på andra sidor än hemmet
 
   return (
     <>
