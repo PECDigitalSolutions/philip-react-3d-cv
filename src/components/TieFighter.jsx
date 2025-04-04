@@ -12,23 +12,38 @@ function TieFighter({ id, onHit, registerCheckHit }) {
   const [lasers, setLasers] = useState([]);
   const lastBurstTime = useRef(0);
   const [burstStep, setBurstStep] = useState(0);
+
+  // ✨ Nytt: styr när vi är i "inkommande fas"
+  const [isApproaching, setIsApproaching] = useState(true);
+  const [approachProgress, setApproachProgress] = useState(0); // 0 → 1
+
   const burstInterval = 0.15;
   const burstSize = 4;
   const burstCooldown = 2;
 
-  // Rörelsebanans slumpvärden
-  const angleOffset = useRef(Math.random() * Math.PI * 2);
-  const radius = useRef(10 + Math.random() * 5);
-  const verticalOffset = useRef((Math.random() - 0.5) * 4);
+  // 🔄 För omloppsrörelse
+  const angleOffset = useRef(Math.random() * Math.PI * 2); // Slumpad vinkelstart
+  const radius = useRef(15 + Math.random() * 15);            // Slumpad radie
+  const verticalOffset = useRef((Math.random() - 0.5) * 4); // Slumpad höjd
   const angularSpeed = 0.2;
 
+  // ✨ Startposition långt borta
+  const entryPoint = useRef(new THREE.Vector3(
+    (Math.random() - 0.5) * 40,
+    (Math.random() - 0.5) * 10,
+    (Math.random() - 0.5) * 40
+  ));
+
   useEffect(() => {
+    // När komponenten mountas eller id ändras
     setLasers([]);
     setBurstStep(0);
     lastBurstTime.current = 0;
+    setIsApproaching(true);
+    setApproachProgress(0);
   }, [id]);
 
-  // Registrera checkHit till Background3D
+  // Registrera träff-funktion
   useEffect(() => {
     if (registerCheckHit) {
       registerCheckHit(checkHit);
@@ -39,18 +54,43 @@ function TieFighter({ id, onHit, registerCheckHit }) {
     const t = clock.getElapsedTime();
     const angle = t * angularSpeed + angleOffset.current;
 
-    const x = Math.cos(angle) * radius.current;
-    const y = verticalOffset.current + Math.sin(angle * 2) * 1.5;
-    const z = Math.sin(angle) * radius.current;
+    // 🧭 Målposition i omloppsbana (målet vi ska flyga till)
+    const orbitX = Math.cos(angle) * radius.current;
+    const orbitY = verticalOffset.current + Math.sin(angle * 2) * 1.5;
+    const orbitZ = Math.sin(angle) * radius.current;
+    const targetOrbitPos = new THREE.Vector3(orbitX, orbitY, orbitZ);
 
+    if (!ref.current) return;
+
+    // ✈️ Om vi fortfarande håller på att flyga in
+    if (isApproaching) {
+      const newProgress = Math.min(1, approachProgress + 0.01);
+      setApproachProgress(newProgress);
+
+      // Lerpa från entry till målposition
+      const currentPos = new THREE.Vector3().lerpVectors(
+        entryPoint.current,
+        targetOrbitPos,
+        newProgress
+      );
+
+      ref.current.position.copy(currentPos);
+      ref.current.lookAt(targetOrbitPos);
+
+      if (newProgress >= 1) {
+        setIsApproaching(false); // Klart att flyga in!
+      }
+
+      return; // Stoppa vidare uppdatering tills vi är framme
+    }
+
+    // ✨ Normal omloppsrörelse
     const nextAngle = angle + 0.01;
     const nextX = Math.cos(nextAngle) * radius.current;
     const nextY = verticalOffset.current + Math.sin(nextAngle * 2) * 1.5;
     const nextZ = Math.sin(nextAngle) * radius.current;
 
-    if (!ref.current) return;
-
-    const currentPos = new THREE.Vector3(x, y, z);
+    const currentPos = targetOrbitPos;
     const nextPos = new THREE.Vector3(nextX, nextY, nextZ);
     const direction = nextPos.clone().sub(currentPos).normalize();
 
@@ -58,16 +98,16 @@ function TieFighter({ id, onHit, registerCheckHit }) {
     ref.current.lookAt(nextPos);
     ref.current.rotation.z = Math.sin(t * 2) * 0.2;
 
-    // Uppdatera hitbox
+    // 🔲 Uppdatera hitbox för träffdetektering
     hitboxRef.current.setFromObject(ref.current);
 
-    // 🔫 Dubbel laser offset (vänster/höger vinge)
+    // 🔫 Beräkna vänster/höger vinge för laser
     const right = new THREE.Vector3()
       .crossVectors(direction, new THREE.Vector3(0, 1, 0))
       .normalize()
       .multiplyScalar(0.3);
 
-    // Fire burst (4 skott, 2 par)
+    // 🔫 Laser burst
     if (burstStep < burstSize) {
       if (t - lastBurstTime.current > burstInterval) {
         lastBurstTime.current = t;
@@ -94,15 +134,15 @@ function TieFighter({ id, onHit, registerCheckHit }) {
       }
     } else {
       if (t - lastBurstTime.current > burstCooldown) {
-        setBurstStep(0);
+        setBurstStep(0); // Börja om ny burst
       }
     }
 
-    // Ta bort gamla lasrar
+    // ⏱️ Ta bort gamla lasrar
     setLasers((prev) => prev.filter((l) => t - l.createdAt < 3));
   });
 
-  // Träffkontroll från grön laser
+  // 🎯 Träffkontroll från spelarens gröna laser
   const checkHit = (laserPosition, source) => {
     if (source === 'player' && hitboxRef.current.distanceToPoint(laserPosition) < 0.5) {
       console.log('💥 HIT från spelaren!');

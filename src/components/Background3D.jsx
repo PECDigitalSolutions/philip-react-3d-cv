@@ -47,7 +47,7 @@ function Background3D() {
           const id = Date.now() + Math.random();
           return [...prev, { id }];
         });
-      }, 1000); // Spawn en ny varje sekund
+      }, 3000); // Spawn en ny varje sekund
     }
   };
 
