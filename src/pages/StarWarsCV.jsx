@@ -8,7 +8,7 @@ function StarWarsCV() {
 
       <div className="title">
         <p>Episode CV</p>
-        <h1>PHILIP ERIKSSON</h1>
+        <h1>PHILIP ERIKSSON CONSULTING</h1>
         </div>
         <p>
         It is a time of rapid digital evolution. Rebel developers, operating from hidden coworking spaces, are pushing the boundaries of frontend design and backend architecture.<br /><br />

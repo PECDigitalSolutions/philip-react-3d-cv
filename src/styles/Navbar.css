@@ -1,3 +1,13 @@
+.logo {
+    color: #61dafb;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1rem;
+    text-shadow:
+      0 0 5px #61dafb,
+      0 0 5px #61dafb;
+  }
+  
 /* Sidomeny */
 .side-navbar {
     position: fixed;
