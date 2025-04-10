@@ -1,84 +1,92 @@
 .logo {
-    color: #61dafb;
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 1rem;
-    text-shadow:
-      0 0 5px #61dafb,
-      0 0 5px #61dafb;
-  }
-  
+  color: #61dafb;
+  font-size: 2rem;
+  font-weight: bold;
+  margin: 1rem;
+  text-shadow:
+    0 0 5px #61dafb,
+    0 0 5px #61dafb;
+}
+
 /* Sidomeny */
 .side-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 200px;
-    background: linear-gradient(to bottom, #111, #1a1a1a);
-    border-right: 2px solid #61dafb;
-    padding: 2rem 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    z-index: 1000;
-    font-family: 'Share Tech Mono', monospace;
-    transition: transform 0.3s ease-in-out;
-    user-select: none; /* Förhindra att text markeras */
-  }
-  
-  /* Menyinnehåll */
-  .side-navbar ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-  }
-  .side-navbar li {
-    margin: 1rem 0;
-    text-align: center;
-  }
-  .side-navbar a {
-    color: #ccc;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.2s ease;
-  }
-  .side-navbar a:hover,
-  .side-navbar a.active {
-    color: #61dafb;
-    text-shadow: 0 0 5px #61dafb;
-  }
-  
-  /* Hamburgermenyn */
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 200px;
+  background: linear-gradient(to bottom, #111, #1a1a1a);
+  border-right: 2px solid #61dafb;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 1000;
+  font-family: 'Share Tech Mono', monospace;
+  transition: transform 0.3s ease-in-out;
+  user-select: none; /* Prevent text selection */
+  transform: translateX(-100%); /* Default closed state */
+}
+
+.side-navbar.open {
+  transform: translateX(0); /* Open state */
+}
+
+/* Menyinnehåll */
+.side-navbar ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.side-navbar li {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.side-navbar a {
+  color: #e0e0e0;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.side-navbar a:hover,
+.side-navbar a.active {
+  color: #61dafb;
+  text-shadow: 0 0 5px #61dafb;
+}
+
+/* Hamburger meny */
+.hamburger {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background: #61dafb;
+  transition: transform 0.3s;
+}
+
+/* RESPONSIVT LÄGE */
+@media (max-width: 768px) {
   .hamburger {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    z-index: 1100;
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
+    display: flex;
   }
-  .bar {
-    width: 25px;
-    height: 3px;
-    background: #61dafb;
-    transition: transform 0.3s;
+
+  .side-navbar {
+    transform: translateX(-100%); /* Default closed state for smaller screens */
   }
-  
-  /* RESPONSIVT LÄGE */
-  @media (max-width: 1000px) {
-    .hamburger {
-      display: flex;
-    }
-  
-    .side-navbar {
-      transform: translateX(-100%);
-    }
-  
-    .side-navbar.open {
-      transform: translateX(0);
-    }
+
+  .side-navbar.open {
+    transform: translateX(0); /* Open state */
   }
-  
+}

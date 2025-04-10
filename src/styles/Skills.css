@@ -36,7 +36,7 @@
 .skills-container li {
     margin-bottom: 0.8rem; /* Avstånd mellan listobjekt */
     font-size: 1.1rem;
-    color: white;
+    color: #e0e0e0;
     line-height: 1.5;
     display: list-item; /* Se till att det är en lista */
     align-items: flex-start; /* Justera punkterna med texten */
