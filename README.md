@@ -40,17 +40,17 @@ This is a personal portfolio website built using **React** and **Vite**. It show
 npm install
 
 3. Start the development server:
-
-npm run dev
+    ```bash
+    npm run dev
 
 4. Open the app in your browser:
-
-http://localhost:(your socket)
+    ```bash
+    http://localhost:(your socket)
 
 Deployment
 This project can be deployed to any static hosting service (e.g., Netlify, Vercel, GitHub Pages). To build the project for production, run:
-
-npm run build
+    ```bash
+    npm run build
 
 The output will be in the dist folder.
 
