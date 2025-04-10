@@ -36,8 +36,8 @@ This is a personal portfolio website built using **React** and **Vite**. It show
    cd react-portfolio
 
 2. Install dependencies:
-
-npm install
+    ```bash
+    npm install
 
 3. Start the development server:
     ```bash
