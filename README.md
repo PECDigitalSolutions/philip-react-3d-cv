@@ -32,7 +32,7 @@ This is a personal portfolio website built using **React** and **Vite**. It show
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/philip-backgard/react-portfolio.git
+   git clone https://github.com/PECDigitalSolutions/philip-react-3d-cv.git
    cd react-portfolio
 
 2. Install dependencies:
@@ -55,6 +55,6 @@ This project can be deployed to any static hosting service (e.g., Netlify, Verce
 The output will be in the dist folder.
 
 Email: philip.backgard@gmail.com
-LinkedIn: linkedin.com/in/philip-eriksson
-GitHub: github.com/philip-backgard
+LinkedIn: [linkedin.com/in/philip-eriksson](https://www.linkedin.com/in/philip-eriksson-b2234824b/)
+GitHub: [github.com/philip-backgard](https://github.com/PECDigitalSolutions)
 Let’s build the future together – one line of code at a time! ```
