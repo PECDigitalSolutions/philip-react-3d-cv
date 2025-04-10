@@ -19,11 +19,11 @@ function Navbar() {
         <h2 className="logo">PEC</h2>
         <ul onClick={() => setIsOpen(false)}>
           <li><NavLink to="/">Home</NavLink></li>
-          <li><NavLink to="/about">Om mig</NavLink></li>
+          <li><NavLink to="/about">About Me</NavLink></li>
           <li><NavLink to="/skills">Skills</NavLink></li>
-          <li><NavLink to="/experience">Erfarenhet</NavLink></li>
-          <li><NavLink to="/projects">Projekt</NavLink></li>
-          <li><NavLink to="/contact">Kontakt</NavLink></li>
+          <li><NavLink to="/experience">Experience</NavLink></li>
+          <li><NavLink to="/projects">Projects</NavLink></li>
+          <li><NavLink to="/contact">Contact</NavLink></li>
           <li><NavLink to="/starwars-cv">Philip Episode CV</NavLink></li>
         </ul>
       </nav>

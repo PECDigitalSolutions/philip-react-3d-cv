@@ -1,13 +1,3 @@
-.logo {
-    color: #61dafb;
-    font-size: 2rem;
-    font-weight: bold;
-    margin: 1rem;
-    text-shadow:
-      0 0 5px #61dafb,
-      0 0 10px #61dafb;
-  }
-  
 /* Grundstruktur */
 .starwars-container {
     position: fixed;
@@ -60,17 +50,17 @@
       /* Startpositionen för animationen */
   
       transform: 
-        rotateX(5deg)         /* 🔄 Lutar texten 25° i X-led, så den ser ut att "falla bort i djupet" */
-        translateZ(0px)     /* 🔍 Flyttar texten lite bakåt i "djupet" så den är synlig direkt */
-        translateY(0%);      /* ⬇️ Börjar under skärmen (100% nedåt) */
+        rotateX(5deg)         /*  Lutar texten 5° i X-led, så den ser ut att "falla bort i djupet" */
+        translateZ(0px)     /*  Flyttar texten lite bakåt i "djupet" så den är synlig direkt */
+        translateY(0%);      /*  Börjar under skärmen (100% nedåt) */
     }
     100% {
       /* Slutpositionen för animationen */
   
       transform: 
-        rotateX(15deg)         /* 🧭 Behåller samma lutning hela vägen */
-        translateZ(-300px)     /* 🚀 Flyttar längre bort i djupet = mindre text */
-        translateY(-300%);     /* ⬆️ Flyttar texten långt uppåt för att scrolla ut ur synfältet */
+        rotateX(15deg)         /*  Behåller samma lutning hela vägen */
+        translateZ(-300px)     /*  Flyttar längre bort i djupet = mindre text */
+        translateY(-300%);     /*  Flyttar texten långt uppåt för att scrolla ut ur synfältet */
     }
   }
   /* Mobiljustering */

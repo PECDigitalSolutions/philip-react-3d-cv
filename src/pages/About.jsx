@@ -3,19 +3,19 @@ import '../styles/About.css';
 function About() {
   return (
     <div className="about-container">
-      <h2>Om mig</h2>
+      <h2>About Me</h2>
 
       <p>
-        Hej! Jag heter Philip Ericsson och är en nyfiken och driven mjukvaruutvecklare med flera års erfarenhet inom systemutveckling, 
-        Master Data Management (MDM), .NET och React.
+        Hi! My name is Philip Eriksson, and I am a curious and driven software developer with several years of experience in system development, 
+        Master Data Management (MDM), .NET, and React.
       </p>
 
       <p>
-        Jag trivs när jag får kombinera teknik med problemlösning och samarbeta i team med olika bakgrunder. Mitt fokus ligger alltid på att leverera rena, vältestade lösningar.
+        I thrive when I can combine technology with problem-solving and collaborate in teams with diverse backgrounds. My focus is always on delivering clean, well-tested solutions.
       </p>
 
       <p>
-        Just nu bygger jag den här webbplatsen som både portfolio och lekplats för att testa modern webbutveckling – React, 3D, och annat spännande!
+        Right now, I am building this website as both a portfolio and a playground to experiment with modern web development – React, 3D, and other exciting technologies!
       </p>
     </div>
   );

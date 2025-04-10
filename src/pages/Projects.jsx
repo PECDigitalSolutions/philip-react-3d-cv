@@ -1,6 +1,8 @@
+import '../styles/Projects.css';
+
 function Projects() {
     return (
-      <div>
+      <div className="projects-container">
         <h2>Projects</h2>
         <ul>
           <li>

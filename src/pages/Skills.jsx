@@ -1,15 +1,16 @@
+import '../styles/Skills.css';
+
 function Skills() {
     return (
-      <div>
+      <div className="skills-container">
         <h2>Skills</h2>
         <ul>
-          <li>Languages: C#, JavaScript, Kotlin, SQL</li>
+          <li>Languages: C#, Python, JavaScript, Kotlin, SQL</li>
           <li>Frameworks: .NET, React, Jetpack Compose</li>
-          <li>Tools: Git, Azure, Profisee MDM, VS Code, Android Studio</li>
+          <li>Tools: Git, Azure, Profisee MDM, VS Code, Visual Studio 2022, Android Studio</li>
         </ul>
       </div>
     );
-  }
-  
-  export default Skills;
-  
+}
+
+export default Skills;

@@ -1,0 +1,40 @@
+.projects-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    color: #e0e0e0;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: center; /* Centrera texten i hela containern */
+}
+
+.projects-container h2 {
+    font-size: 2.5rem;
+    color: #61dafb;
+    margin-bottom: 1.5rem;
+    text-align: center; /* Säkerställ att rubriken är centrerad */
+    position: relative;
+}
+
+.projects-container ul {
+    list-style-type: disc; /* Standardpunkter */
+    padding-left: 2rem; /* Indrag för att punkterna ska synas */
+    text-align: left; /* Justera texten till vänster */
+    margin: 0 auto;
+    max-width: 600px; /* Begränsa bredden för bättre läsbarhet */
+}
+
+.projects-container li {
+    margin-bottom: 1.5rem; /* Avstånd mellan listobjekt */
+    font-size: 1.1rem;
+    color: white;
+    line-height: 1.5;
+    display: list-item; /* Se till att det är en lista */
+    align-items: flex-start; /* Justera punkterna med texten */
+}
+
+.projects-container li strong {
+    color: #61dafb; /* Färg för projektnamn */
+    font-size: 1.2rem;
+}
