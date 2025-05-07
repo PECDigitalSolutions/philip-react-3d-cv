@@ -1,5 +1,5 @@
 # Philip Eriksson's Portfolio Website
-
+# #
 This is a personal portfolio website built using **React** and **Vite**. It showcases my skills, experience, and projects, along with an interactive 3D Star Wars-themed CV page.
 
 ## Features
